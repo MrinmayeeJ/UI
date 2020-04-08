@@ -13,10 +13,38 @@
                 <embed src="https://webapigetproverb.azurewebsites.net/api/getproverb"/>
                  </object>
             </div>
+            
+            <form id="form1" runat="server">
+                <div >
+                    You will be auto logged out in <span id="timeOut"></span> seconds.
+                </div>
+            </form>
     </div>
 
  <div id="webchat" role="main" class="detail col-lg-6 col-md-6 col-sm-12 col-xs-12" ></div>
         <!--<div  class="detail col-lg-6 col-md-6 col-sm-12 col-xs-12" [ngStyle]="{'background-image': getImg()}" #botWindow></div>-->
 
+    <script>
+var IdealTimeOut = 10; //10 seconds
+var idleSecondsTimer = null;
+var idleSecondsCounter = 0;
+document.onclick = function () { idleSecondsCounter = 0; };
+document.onmousemove = function () { idleSecondsCounter = 0; };
+document.onkeypress = function () { idleSecondsCounter = 0; };
+idleSecondsTimer = window.setInterval(CheckIdleTime, 1000);
+
+function CheckIdleTime() {
+    idleSecondsCounter++;
+    var oPanel = document.getElementById("timeOut");
+    if (oPanel) {
+        oPanel.innerHTML = (IdealTimeOut - idleSecondsCounter);
+    }
+    if (idleSecondsCounter >= IdealTimeOut) {
+        window.clearInterval(idleSecondsTimer);
+        alert("Your Session has expired. Please login again.");
+        window.location = "https://www.aspsnippets.com/";
+    }
+}
+</script>
 </div>
 <a href="#" *ngIf="this.isButtonVisible" class="chat_btn col-lg-6 col-md-6 col-sm-12 col-xs-12" (click)="onClick($event)"><i class="fa fa-comments" aria-hidden="true" style='font-size:80px;color:rgb(101,45,142);'></i></a>
