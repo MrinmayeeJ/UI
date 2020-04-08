@@ -1,0 +1,139 @@
+.container-fluid {
+    height: 90%;
+    width: 30%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: flex-end;
+    //border-style: solid;
+    border-style: ridge;
+    border-radius: 2%;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.chat_btn{
+    width:100px;
+    height:80px;
+    margin-top: 40%;
+    margin-right:5%;
+    border-style: none;
+    background-color: white;
+    float:right;
+
+}
+.chat_btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 30%;
+}
+
+.container-fluid .chat_header{
+    border-style: ridge;
+    width:100%;
+    height: 12%;
+    //background-color:rgba(248, 248, 248, 0.726);
+
+    background-color: white;
+
+}
+
+.container-fluid .head{
+width:100%;
+height:5%;
+font-size: 20px;
+border-style: ridge;
+background-color: rgb(101,45,142);
+color: white;
+border: 2px solid rgb(101,45,142);
+}
+
+.container-fluid .chat_body{
+    width:100%;
+    height:100%;
+    border-style: ridge;
+    background-color: white;
+}
+
+.container-fluid .chat_header #text{
+   // float : right;
+   //margin-right: 80px;
+    //margin-top: 2%;
+ margin-bottom: auto;
+   // margin-top: 60px;
+    margin-left: 95px;
+    //align-content:right;
+
+
+}
+.container-fluid .chat_header #Ssmith_Image{
+    width: 50px;
+    height: 60px;
+    margin-top:1%;
+    //margin-left:2%
+    float: left;
+
+}
+
+ .close {
+    color: white;
+    float: right;
+    font-weight: bold;
+    width:20px;
+    height:20px;
+}
+
+ .close:hover,
+    .close:focus {
+        color: red;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+//  .minimize {
+//     color: white;
+//     font-weight: bold;
+//     width:20px;
+//     height:20px;
+//     float: right;
+//     margin-right: 20px;
+//     border-style: none;
+//     background-color: rgb(101,45,142); ;
+// }
+
+//  .minimize:hover,
+//  .minimize:focus {
+//         color: red;
+//         text-decoration: none;
+//         cursor: pointer;
+//     }
+
+
+
+    .row.justify-content-center.align-items-center {
+        height: 100%;
+        width:100%;
+
+    }
+
+    .col-lg-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 100%;
+    }
+
+   .container-fluid .detail{
+    position: relative;
+    height: 83%;
+    bottom: 0;
+    left: 0;
+    }
+
+    @media screen and (max-width: 600px) {
+        .container-fluid {
+          width:100%;
+          height:100%;
+          border-radius: 0%;
+        }
+      }
