@@ -35,6 +35,34 @@ export class AppComponent implements OnInit {
         });
 
 
+                //newly added for internally send message while loading of bot
+    (async function () {
+        const store = window.WebChat.createStore({}, ({ dispatch }) => next => action => {
+            if (action.type === 'DIRECT_LINE/CONNECT_FULFILLED') {
+                dispatch({
+                    type: 'WEB_CHAT/SEND_EVENT',
+                    payload: {
+                        name: 'webchat/join',
+                        value: { language: window.navigator.language }
+                    }
+                });
+            }
+            return next(action);
+        });
+
+
+        window.WebChat.renderWebChat({
+            directLine: window.WebChat.createDirectLine({ secret: 'r9Ean8uiqZw.nKo3xuCUvIOM81MDCn4j6of0MFmXWosSTIdScAyUGtw' }),
+            //userID: 'USER_ID',
+            store
+        }, document.getElementById('webchat'));
+
+        const qs = <HTMLElement>document.querySelector('#webchat > *');
+        qs.focus();
+    })().catch(err => console.error(err));
+    //newly added till here for internally send message while loading of bot
+        
+        
          window.WebChat.renderWebChat(
             {
                 directLine,
