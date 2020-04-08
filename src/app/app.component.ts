@@ -226,6 +226,6 @@ export class AppComponent implements OnInit {
         if (idleSecondsCounter >= IdealTimeOut) {
             window.clearInterval(idleSecondsTimer);
             alert("Your Session has expired. Please login again.");
-            window.location = "https://www.aspsnippets.com/";
+            window.location.href = "https://www.aspsnippets.com/";
         }
     }
