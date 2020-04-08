@@ -208,3 +208,27 @@ export class AppComponent implements OnInit {
             })().catch(err => console.error(err));
 
     //<!--New code added till here for speech to text-->
+
+//code for session time out
+
+
+    var IdealTimeOut = 20; //20 seconds
+    var idleSecondsTimer = null;
+    var idleSecondsCounter = 0;
+    document.onclick = function () { idleSecondsCounter = 0; };
+    document.onmousemove = function () { idleSecondsCounter = 0; };
+    document.onkeypress = function () { idleSecondsCounter = 0; };
+    idleSecondsTimer = window.setInterval(CheckIdleTime, 1000);
+
+    function CheckIdleTime() {
+        idleSecondsCounter++;
+        var oPanel = document.getElementById("timeOut");
+        if (oPanel) {
+            oPanel.innerHTML = String(IdealTimeOut - idleSecondsCounter);
+        }
+        if (idleSecondsCounter >= IdealTimeOut) {
+            window.clearInterval(idleSecondsTimer);
+            alert("Your Session has expired. Please login again.");
+            window.location.href= "https://converge.slk-soft.com/";
+        }
+    }
